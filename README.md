@@ -58,5 +58,9 @@ git commit -m 'First Published Version'
 git push origin main
 ```
 - Publish the static website: Go to the Pages option in the settings page, and in the Build and Deployment section, choose the GitHub Actions source.
-- The previous step creates a commit with the YML configuration file to automatically deploy the static website generated with Next.js.
+```
+https://github.com/yourusername/nextjs-github-actions/settings/pages
+```
+- Click on the button in the box displayed to configure the packaging of a Nextjs site.
+- The previous step prepares a commit with the YML configuration file to automatically deploy the static website generated with Next.js.
 - After creating the commit, you only need to wait a few seconds for the actions to execute successfully and deploy the static website.
