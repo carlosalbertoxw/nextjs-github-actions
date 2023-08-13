@@ -1,34 +1,62 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js GitHub Actions
 
-## Getting Started
+## Overview
+This simple example demonstrates how to deploy a static website using Next.js with GitHub Actions.
 
-First, run the development server:
+## Purpose
+The purpose of this project is to provide a clear example of how to publish a Next.js website using GitHub Actions.
 
-```bash
-npm run dev
-# or
-yarn dev
+## Technologies Used
+- Next.js
+- GitHub Pages
+- GitHub Actions
+
+## Creating a New Project from Scratch
+- Create a new Next.js project: Choose a name for your project (e.g., nextjs-github-actions) and create the project using the following command:
 ```
+npx create-next-app nextjs-github-actions
+```
+- Open the project folder: Use a text editor or console to navigate to the application folder.
+- Configure static export: Edit the next.config.js file to configure static export. You can refer to this example:
+```
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+  // Use the prefix for GitHub Pages
+  basePath: '/nextjs-github-actions',
+  assetPrefix: '/nextjs-github-actions/',
+  // Enable static export
+  trailingSlash: true,
+  images: {
+    unoptimized: true
+  },
+}
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+module.exports = nextConfig
+```
+- Add an export script: In the package.json file, add the following export script:
+```
+"scripts": {
+  ...
+  "export": "next build && next export"
+}
+```
+- Test static export: Run the following command:
+```
+npm run export
+```
+- Create a GitHub repository: Create a new GitHub repository named nextjs-github-actions (or any other name you prefer).
+- Connect the repository: Run the following command to connect your local project to the GitHub repository:
+```
+git remote add origin https://github.com/yourusername/nextjs-github-actions.git
+```
+- Commit and push changes: Commit the modified files and push them to the main branch on GitHub:
+```
+git add .
+git commit -m 'First Published Version'
+git push origin main
+```
+- Publish the static website: Go to the Pages option in the settings page, and in the Build and Deployment section, choose the GitHub Actions source.
+- The previous step creates a commit with the YML configuration file to automatically deploy the static website generated with Next.js.
+- After creating the commit, you only need to wait a few seconds for the actions to execute successfully and deploy the static website.
