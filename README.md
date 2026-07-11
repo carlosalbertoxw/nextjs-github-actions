@@ -7,44 +7,50 @@ This simple example demonstrates how to deploy a static website using Next.js wi
 The purpose of this project is to provide a clear example of how to publish a Next.js website using GitHub Actions.
 
 ## Technologies Used
-- Next.js
+- Next.js 16
+- pnpm
 - GitHub Pages
 - GitHub Actions
+
+## Local Development
+```
+pnpm install
+pnpm dev
+```
+
+To build the static export locally (output goes to the `out/` folder):
+```
+pnpm build
+```
 
 ## Creating a New Project from Scratch
 - Create a new Next.js project: Choose a name for your project (e.g., nextjs-github-actions) and create the project using the following command:
 ```
-npx create-next-app@latest nextjs-github-actions --yes
+pnpm create next-app@latest nextjs-github-actions
 ```
 - Open the project folder: Use a text editor or console to navigate to the application folder.
-- Configure static export: Edit the next.config.js file to configure static export. You can refer to this example:
-```
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: 'export',
+- Configure static export: Edit the `next.config.ts` file to configure static export. You can refer to this example:
+```ts
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  output: "export",
   reactStrictMode: true,
-  basePath: '/nextjs-github-actions', 
-  assetPrefix: '/nextjs-github-actions/',
+  basePath: "/nextjs-github-actions",
+  assetPrefix: "/nextjs-github-actions/",
   trailingSlash: true,
   images: {
     unoptimized: true,
   },
-}
+};
 
-module.exports = nextConfig
+export default nextConfig;
 ```
-- Add an export script: In the package.json file, add the following export script:
+- Test the static export: Run the following command and check the generated `out/` folder:
 ```
-"scripts": {
-  ...
-  "export": "next build"
-}
+pnpm build
 ```
-- Test static export: Run the following command:
-```
-npm run export
-```
-- Create a GitHub repository: Create a new GitHub repository named nextjs-github-actions (or any other name you prefer).
+- Create a GitHub repository: Create a new GitHub repository named nextjs-github-actions (or any other name you prefer — remember to keep `basePath` in sync with the repository name).
 - Connect the repository: Run the following command to connect your local project to the GitHub repository:
 ```
 git remote add origin https://github.com/yourusername/nextjs-github-actions.git
@@ -59,6 +65,6 @@ git push origin main
 ```
 https://github.com/yourusername/nextjs-github-actions/settings/pages
 ```
-- Click on the button in the box displayed to configure the packaging of a Nextjs site.
-- The previous step prepares a commit with the YML configuration file to automatically deploy the static website generated with Next.js.
+- Click on the button in the box displayed to configure the packaging of a Next.js site.
+- The previous step prepares a commit with the YML configuration file to automatically deploy the static website generated with Next.js. This repository already includes a ready-to-use workflow at [.github/workflows/nextjs.yml](.github/workflows/nextjs.yml) that installs dependencies with pnpm, builds the static export, and deploys it to GitHub Pages.
 - After creating the commit, you only need to wait a few seconds for the actions to execute successfully and deploy the static website.

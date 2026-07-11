@@ -1,13 +1,14 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: 'export',
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  output: "export",
   reactStrictMode: true,
-  basePath: '/nextjs-github-actions', 
-  assetPrefix: '/nextjs-github-actions/',
+  basePath: "/nextjs-github-actions",
+  assetPrefix: "/nextjs-github-actions/",
   trailingSlash: true,
   images: {
     unoptimized: true,
   },
-}
+};
 
-module.exports = nextConfig
+export default nextConfig;

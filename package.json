@@ -2,29 +2,26 @@
   "name": "nextjs-github-actions",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@11.10.0",
   "scripts": {
-    "export": "next build",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
-    "next": "^16.2.6",
-    "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "next": "^16.2.10",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
+    "@types/node": "^24",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.1.4",
+    "eslint-config-next": "^16.2.10",
     "tailwindcss": "^4",
     "typescript": "^5"
-  },
-  "overrides": {
-    "postcss": "^8.5.10"
   }
 }
