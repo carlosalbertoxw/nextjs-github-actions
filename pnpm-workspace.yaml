@@ -1,5 +1,21 @@
 allowBuilds:
   sharp: true
   unrs-resolver: true
+minimumReleaseAgeExclude:
+  - brace-expansion@1.1.18
+auditConfig:
+  ignoreGhsas:
+    # Falso positivo: el aviso declara "patched >=5.0.8", rango que no cubre el
+    # backport a la linea 1.x. Tenemos brace-expansion@1.1.18, que SI incluye el
+    # fix (EXPANSION_MAX_LENGTH). No se puede subir a 5.x: su build CJS exporta
+    # un objeto {expand,...} y minimatch@3 espera una funcion, lo que rompe eslint.
+    - GHSA-mh99-v99m-4gvg
+
 overrides:
   postcss: '>=8.5.10'
+  # GHSA-mh99-v99m-4gvg: DoS via unbounded expansion. 1.1.18 es el backport a la
+  # linea 1.x, que es la que arrastra eslint via minimatch.
+  brace-expansion@1: '^1.1.18'
+  # sharp <0.35.0 hereda vulnerabilidades de libvips. Es optionalDependency de
+  # next y aqui ni se usa (output: export + images.unoptimized).
+  sharp: '>=0.35.0'
