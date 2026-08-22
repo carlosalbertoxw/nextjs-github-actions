@@ -16,6 +16,12 @@ overrides:
   # GHSA-mh99-v99m-4gvg: DoS via unbounded expansion. 1.1.18 es el backport a la
   # linea 1.x, que es la que arrastra eslint via minimatch.
   brace-expansion@1: '^1.1.18'
+  # GHSA-v6h2-p8h4-qcjw: misma clase de DoS en la linea moderna, que llega via
+  # minimatch@10 (eslint-plugin-import y sus resolvers). El fix esta en 5.0.9.
+  brace-expansion@5: '>=5.0.9'
+  # GHSA-2v37-7h3g-55p8: nanoid entra en bucle con generadores personalizados.
+  # Lo arrastra postcss, que es dependencia interna de next.
+  nanoid@3: '>=3.3.18'
   # sharp <0.35.0 hereda vulnerabilidades de libvips. Es optionalDependency de
   # next y aqui ni se usa (output: export + images.unoptimized).
   sharp: '>=0.35.0'

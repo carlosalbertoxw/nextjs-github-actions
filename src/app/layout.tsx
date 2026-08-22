@@ -1,21 +1,22 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
+import { Cabecera } from "@/components/cabecera";
+import { Pie } from "@/components/pie";
+import { Revelado } from "@/components/revelado";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Next.js + GitHub Actions",
+  title: {
+    default: "Cauce — Analitica operativa para equipos que deciden a diario",
+    template: "%s — Cauce",
+  },
   description:
-    "Ejemplo de despliegue de un sitio estático de Next.js en GitHub Pages con GitHub Actions",
+    "Cauce conecta tus fuentes de datos y entrega metricas de operacion listas para usar. Sitio de demostracion con contenido ficticio.",
 };
 
 export default function RootLayout({
@@ -24,11 +25,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    // La clase va en <html>: --fuente se declara en :root y ahi tiene que poder
+    // resolver var(--font-inter).
+    <html lang="es" className={inter.variable}>
+      <body>
+        <Cabecera />
+        <main id="contenido">{children}</main>
+        <Pie />
+        <Revelado />
       </body>
     </html>
   );

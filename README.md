@@ -7,10 +7,35 @@ This simple example demonstrates how to deploy a static website using Next.js wi
 The purpose of this project is to provide a clear example of how to publish a Next.js website using GitHub Actions.
 
 ## Technologies Used
-- Next.js 16
+- Next.js 16 (App Router, static export)
+- React 19
+- TypeScript
 - pnpm
 - GitHub Pages
 - GitHub Actions
+
+## Demo Site
+The deployed site is a fictional multi-page marketing site ("Cauce") used to exercise a
+realistic static export: several routes, shared header/footer, and a bit of client-side
+interactivity. All companies, people and figures are made up.
+
+| Route | Content |
+| --- | --- |
+| `/` | Hero with a decorative dashboard, feature cards, process steps, metrics and a testimonial |
+| `/servicios` | Four service blocks, integrations grid, scope in/out |
+| `/precios` | Monthly/annual price switcher, plan cards, comparison table, billing FAQ |
+| `/casos` | Three case studies (context, solution, result) |
+| `/contacto` | Client-side validated contact form, office details and FAQ |
+| `404.html` | Generated from `src/app/not-found.tsx`; GitHub Pages serves it for unknown routes |
+
+Layout and styling live in a single hand-written stylesheet, [src/app/globals.css](src/app/globals.css),
+using CSS custom properties with a light and dark palette. Only four components opt into
+`"use client"`: the header menu, the scroll reveal, the price switcher and the contact form.
+
+The contact form has no backend — GitHub Pages serves static files only, so it validates and
+confirms in the browser. To receive real messages, point it at an external service
+(Formspree, Basin, Getform...) and remove the `preventDefault()` in
+[src/components/formulario-contacto.tsx](src/components/formulario-contacto.tsx).
 
 ## Local Development
 ```
