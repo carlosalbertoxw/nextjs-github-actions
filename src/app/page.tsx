@@ -10,11 +10,11 @@ export default function Inicio() {
       <section className="hero">
         <div className="contenedor hero__interior">
           <div className="hero__texto" data-revelar>
-            <p className="antetitulo">Plataforma de analitica operativa</p>
-            <h1>Tus datos dejan de vivir en hojas de calculo.</h1>
+            <p className="antetitulo">Plataforma de analítica operativa</p>
+            <h1>Tus datos dejan de vivir en hojas de cálculo.</h1>
             <p className="entradilla">
               Cauce conecta tus sistemas, normaliza los eventos y entrega paneles que tu equipo
-              entiende sin necesitar a nadie de ingenieria. Puesta en marcha en dos semanas.
+              entiende sin necesitar a nadie de ingeniería. Puesta en marcha en dos semanas.
             </p>
             <div className="hero__acciones">
               <Link className="boton boton--primario" href="/contacto">
@@ -24,7 +24,7 @@ export default function Inicio() {
                 Ver precios
               </Link>
             </div>
-            <p className="hero__nota">Sin tarjeta. Prueba de 14 dias con tus propios datos.</p>
+            <p className="hero__nota">Sin tarjeta. Prueba de 14 días con tus propios datos.</p>
           </div>
 
           <div className="hero__visual" data-revelar aria-hidden="true">
@@ -33,7 +33,7 @@ export default function Inicio() {
                 <span />
                 <span />
                 <span />
-                <p className="panel__titulo">Operaciones · ultimos 30 dias</p>
+                <p className="panel__titulo">Operaciones · últimos 30 días</p>
               </div>
               <div className="panel__cuerpo">
                 <div className="panel__kpis">
@@ -90,11 +90,11 @@ export default function Inicio() {
       <section className="seccion">
         <div className="contenedor">
           <header className="seccion__cabecera" data-revelar>
-            <p className="antetitulo">Por que Cauce</p>
+            <p className="antetitulo">Por qué Cauce</p>
             <h2>Tres problemas que resolvemos el primer mes</h2>
             <p className="entradilla">
               No vendemos un lienzo en blanco. Llegamos con los indicadores del sector ya
-              modelados y los ajustamos a como trabaja tu equipo.
+              modelados y los ajustamos a cómo trabaja tu equipo.
             </p>
           </header>
 
@@ -107,8 +107,8 @@ export default function Inicio() {
               </div>
               <h3>Una sola fuente de verdad</h3>
               <p>
-                Conectores para ERP, CRM, almacen y hojas de calculo. Los datos se unifican con
-                el mismo criterio, asi que ventas y operaciones dejan de discutir sobre las cifras.
+                Conectores para ERP, CRM, almacén y hojas de cálculo. Los datos se unifican con
+                el mismo criterio, así que ventas y operaciones dejan de discutir sobre las cifras.
               </p>
             </article>
 
@@ -122,7 +122,7 @@ export default function Inicio() {
               <h3>Alertas que llegan a tiempo</h3>
               <p>
                 Umbrales por proceso y aviso en Slack o correo cuando algo se desvia. El turno de
-                noche se entera del problema sin esperar al informe de la manana.
+                noche se entera del problema sin esperar al informe de la mañana.
               </p>
             </article>
 
@@ -134,7 +134,7 @@ export default function Inicio() {
               </div>
               <h3>Informes sin trabajo manual</h3>
               <p>
-                El comite recibe el mismo panel cada lunes, generado solo. Se acabo el becario
+                El comité recibe el mismo panel cada lunes, generado solo. Se acabó el becario
                 copiando celdas entre siete ficheros distintos.
               </p>
             </article>
@@ -152,12 +152,12 @@ export default function Inicio() {
           <ol className="pasos">
             <li className="paso" data-revelar>
               <span className="paso__numero">1</span>
-              <h3>Diagnostico</h3>
-              <p>Una sesion de 90 minutos para mapear procesos, fuentes y quien decide que.</p>
+              <h3>Diagnóstico</h3>
+              <p>Una sesión de 90 minutos para mapear procesos, fuentes y quién decide qué.</p>
             </li>
             <li className="paso" data-revelar>
               <span className="paso__numero">2</span>
-              <h3>Conexion</h3>
+              <h3>Conexión</h3>
               <p>
                 Enchufamos tus sistemas. Si algo no tiene API, lo resolvemos con carga programada.
               </p>
@@ -171,9 +171,9 @@ export default function Inicio() {
             </li>
             <li className="paso" data-revelar>
               <span className="paso__numero">4</span>
-              <h3>Adopcion</h3>
+              <h3>Adopción</h3>
               <p>
-                Formacion, plantillas y acompanamiento durante los dos primeros cierres de mes.
+                Formación, plantillas y acompañamiento durante los dos primeros cierres de mes.
               </p>
             </li>
           </ol>
@@ -184,7 +184,7 @@ export default function Inicio() {
         <div className="contenedor">
           <div className="metricas">
             <div className="metrica" data-revelar>
-              <span className="metrica__valor">14 dias</span>
+              <span className="metrica__valor">14 días</span>
               <span className="metrica__etiqueta">Puesta en marcha media</span>
             </div>
             <div className="metrica" data-revelar>
@@ -207,8 +207,8 @@ export default function Inicio() {
         <div className="contenedor contenedor--estrecho">
           <figure className="cita" data-revelar>
             <blockquote>
-              Llevabamos dos anos intentando montar esto por dentro. Con Cauce tuvimos el primer
-              panel util en once dias y, sobre todo, dejamos de discutir de donde salia cada numero.
+              Llevábamos dos años intentando montar esto por dentro. Con Cauce tuvimos el primer
+              panel útil en once días y, sobre todo, dejamos de discutir de dónde salía cada número.
             </blockquote>
             <figcaption>
               <span className="cita__avatar" aria-hidden="true">
@@ -227,7 +227,7 @@ export default function Inicio() {
         <div className="contenedor cta__interior" data-revelar>
           <div>
             <h2>Vemos tus datos en una llamada de 30 minutos</h2>
-            <p>Sin presentacion generica: trabajamos sobre un proceso real tuyo.</p>
+            <p>Sin presentación generica: trabajamos sobre un proceso real tuyo.</p>
           </div>
           <Link className="boton boton--claro" href="/contacto">
             Reservar una demo

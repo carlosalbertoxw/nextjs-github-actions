@@ -20,7 +20,7 @@ export function Cabecera() {
   const [abierta, setAbierta] = useState(false);
   const ruta = normalizar(usePathname());
 
-  // Si se vuelve a escritorio, el menu desplegable deja de tener sentido.
+  // Si se vuelve a escritorio, el menú desplegable deja de tener sentido.
   useEffect(() => {
     const consulta = window.matchMedia("(min-width: 761px)");
     const cerrar = () => setAbierta(false);
@@ -55,15 +55,15 @@ export function Cabecera() {
             aria-controls="nav-principal"
             onClick={() => setAbierta((estaba) => !estaba)}
           >
-            <span className="visualmente-oculto">{abierta ? "Cerrar menu" : "Abrir menu"}</span>
+            <span className="visualmente-oculto">{abierta ? "Cerrar menú" : "Abrir menú"}</span>
             <span className="nav-toggle__icono" aria-hidden="true" />
           </button>
 
-          {/* Cerrar al navegar, tanto entre paginas como a un ancla de la misma. */}
+          {/* Cerrar al navegar, tanto entre páginas como a un ancla de la misma. */}
           <nav
             className={abierta ? "nav es-abierta" : "nav"}
             id="nav-principal"
-            aria-label="Navegacion principal"
+            aria-label="Navegación principal"
             onClick={(evento) => {
               if ((evento.target as HTMLElement).closest("a")) setAbierta(false);
             }}

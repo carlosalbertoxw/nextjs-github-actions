@@ -6,8 +6,8 @@ import { useEffect } from "react";
 // Aparicion progresiva de los bloques marcados con [data-revelar].
 // Respeta prefers-reduced-motion y degrada mostrandolo todo si no hay soporte.
 //
-// Se monta una sola vez en el layout y se vuelve a enganchar en cada navegacion,
-// asi las paginas siguen siendo componentes de servidor sin envoltorios extra.
+// Se monta una sola vez en el layout y se vuelve a enganchar en cada navegación,
+// así las páginas siguen siendo componentes de servidor sin envoltorios extra.
 export function Revelado() {
   const ruta = usePathname();
 

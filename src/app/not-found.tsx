@@ -2,21 +2,21 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Pagina no encontrada",
+  title: "Página no encontrada",
   robots: { index: false },
 };
 
-// Con `output: export` esta pagina se compila a out/404.html, que es justo el
+// Con `output: export` esta página se compila a out/404.html, que es justo el
 // archivo que GitHub Pages sirve ante cualquier ruta desconocida.
 export default function NoEncontrada() {
   return (
     <section className="portada portada--centrada">
       <div className="contenedor contenedor--estrecho">
         <p className="antetitulo">Error 404</p>
-        <h1>Esta pagina no existe</h1>
+        <h1>Esta página no existe</h1>
         <p className="entradilla">
           El enlace puede estar mal escrito o el contenido haberse movido. GitHub Pages sirve
-          este archivo automaticamente para cualquier ruta desconocida.
+          este archivo automáticamente para cualquier ruta desconocida.
         </p>
         <div className="hero__acciones">
           <Link className="boton boton--primario" href="/">

@@ -1,95 +1,133 @@
-# Next.js GitHub Actions
+# nextjs-github-actions
 
-## Overview
-This simple example demonstrates how to deploy a static website using Next.js with GitHub Actions.
+Sitio estático de demostración hecho con **Next.js** (export estático) y publicado en
+**GitHub Pages** mediante GitHub Actions.
 
-## Purpose
-The purpose of this project is to provide a clear example of how to publish a Next.js website using GitHub Actions.
+Es la web de *Cauce*, una empresa ficticia de analítica operativa: cinco páginas
+(inicio, servicios, precios, casos y contacto) más una 404, con menú responsive,
+conmutador de precios, formulario validado en el navegador y animaciones de
+aparición al hacer scroll. Todo el contenido y las cifras son inventados.
 
-## Technologies Used
-- Next.js 16 (App Router, static export)
+## Tecnologías
+
+- Next.js 16 (App Router, `output: "export"`)
 - React 19
 - TypeScript
 - pnpm
-- GitHub Pages
-- GitHub Actions
+- GitHub Pages y GitHub Actions
 
-## Demo Site
-The deployed site is a fictional multi-page marketing site ("Cauce") used to exercise a
-realistic static export: several routes, shared header/footer, and a bit of client-side
-interactivity. All companies, people and figures are made up.
+## Requisitos
 
-| Route | Content |
-| --- | --- |
-| `/` | Hero with a decorative dashboard, feature cards, process steps, metrics and a testimonial |
-| `/servicios` | Four service blocks, integrations grid, scope in/out |
-| `/precios` | Monthly/annual price switcher, plan cards, comparison table, billing FAQ |
-| `/casos` | Three case studies (context, solution, result) |
-| `/contacto` | Client-side validated contact form, office details and FAQ |
-| `404.html` | Generated from `src/app/not-found.tsx`; GitHub Pages serves it for unknown routes |
+- Node.js 24 (la versión está fijada en `.nvmrc`; Next.js 16 admite desde Node 20.9)
+- pnpm (la versión exacta está en el campo `packageManager` de `package.json`;
+  con `corepack enable` se usa esa automáticamente)
+- Una cuenta de GitHub
 
-Layout and styling live in a single hand-written stylesheet, [src/app/globals.css](src/app/globals.css),
-using CSS custom properties with a light and dark palette. Only four components opt into
-`"use client"`: the header menu, the scroll reveal, the price switcher and the contact form.
+## Desarrollo local
 
-The contact form has no backend — GitHub Pages serves static files only, so it validates and
-confirms in the browser. To receive real messages, point it at an external service
-(Formspree, Basin, Getform...) and remove the `preventDefault()` in
-[src/components/formulario-contacto.tsx](src/components/formulario-contacto.tsx).
-
-## Local Development
-```
+```bash
 pnpm install
 pnpm dev
 ```
 
-To build the static export locally (output goes to the `out/` folder):
+Ojo: como hay `basePath`, el sitio en desarrollo vive en
+http://localhost:3000/nextjs-github-actions/ (la raíz devuelve 404).
+
+| Comando | Qué hace |
+| --- | --- |
+| `pnpm dev` | Servidor de desarrollo con recarga en caliente |
+| `pnpm build` | Genera el sitio estático en `out/` |
+| `pnpm lint` | Revisa el código con ESLint (también corre en CI) |
+
+## Páginas
+
+| Ruta | Contenido |
+| --- | --- |
+| `/` | Hero con un panel decorativo, ventajas, proceso, métricas y testimonio |
+| `/servicios` | Cuatro bloques de servicio, integraciones y alcance |
+| `/precios` | Conmutador mensual/anual, planes, tabla comparativa y FAQ de facturación |
+| `/casos` | Tres casos de éxito (contexto, solución y resultado) |
+| `/contacto` | Formulario validado en el navegador, datos de la oficina y FAQ |
+| `404.html` | Se genera desde `src/app/not-found.tsx`; GitHub Pages lo sirve ante rutas desconocidas |
+
+## Estructura
+
 ```
-pnpm build
+├── next.config.ts            # export estático + basePath (¡edítalo antes de publicar!)
+├── src/
+│   ├── app/                  # cada carpeta con page.tsx = una ruta
+│   │   ├── layout.tsx        # <html>, cabecera, pie y metadatos comunes
+│   │   ├── page.tsx          # /
+│   │   ├── servicios/        # /servicios
+│   │   ├── precios/          # /precios
+│   │   ├── casos/            # /casos
+│   │   ├── contacto/         # /contacto
+│   │   ├── not-found.tsx     # out/404.html
+│   │   ├── globals.css       # hoja única: tokens, layout y componentes
+│   │   └── icon.svg          # favicon
+│   └── components/
+│       ├── cabecera.tsx      # menú + marca del enlace activo     ("use client")
+│       ├── revelado.tsx      # aparición progresiva al hacer scroll ("use client")
+│       ├── planes.tsx        # conmutador mensual / anual          ("use client")
+│       ├── formulario-contacto.tsx  # validación del contacto      ("use client")
+│       ├── anio.tsx          # año del pie, leído en el navegador  ("use client")
+│       ├── marca.tsx         # logotipo + nombre
+│       └── pie.tsx
+├── pnpm-workspace.yaml       # ajustes de pnpm (dependencias opcionales, overrides)
+├── .nvmrc                    # versión de Node (la usa también el workflow)
+└── .github/
+    ├── workflows/nextjs.yml
+    └── dependabot.yml        # actualizaciones mensuales de dependencias y Actions
 ```
 
-## Creating a New Project from Scratch
-- Create a new Next.js project: Choose a name for your project (e.g., nextjs-github-actions) and create the project using the following command:
-```
-pnpm create next-app@latest nextjs-github-actions
-```
-- Open the project folder: Use a text editor or console to navigate to the application folder.
-- Configure static export: Edit the `next.config.ts` file to configure static export. You can refer to this example:
+Las páginas son componentes de servidor: se renderizan una vez al construir. Solo los
+componentes marcados con `"use client"` envían JavaScript al navegador.
+
+### El formulario de contacto
+
+GitHub Pages es hosting estático: no hay servidor que reciba el POST. El formulario valida
+y confirma en el navegador, a modo de demostración. Para recibir los mensajes de verdad,
+apunta el `action` a un servicio externo (Formspree, Basin, Getform…) y quita el
+`preventDefault()` de [src/components/formulario-contacto.tsx](src/components/formulario-contacto.tsx).
+
+## Publicar en GitHub Pages
+
+### 1. Ajusta `next.config.ts`
+
 ```ts
-import type { NextConfig } from "next";
-
 const nextConfig: NextConfig = {
   output: "export",
-  reactStrictMode: true,
-  basePath: "/nextjs-github-actions",
-  assetPrefix: "/nextjs-github-actions/",
+  basePath: "/nextjs-github-actions", // = nombre del repositorio
   trailingSlash: true,
-  images: {
-    unoptimized: true,
-  },
+  images: { unoptimized: true },
 };
+```
 
-export default nextConfig;
-```
-- Test the static export: Run the following command and check the generated `out/` folder:
-```
-pnpm build
-```
-- Create a GitHub repository: Create a new GitHub repository named nextjs-github-actions (or any other name you prefer — remember to keep `basePath` in sync with the repository name).
-- Connect the repository: Run the following command to connect your local project to the GitHub repository:
-```
-git remote add origin https://github.com/yourusername/nextjs-github-actions.git
-```
-- Commit and push changes: Commit the modified files and push them to the main branch on GitHub:
-```
+- `output: "export"` genera HTML estático en `out/`.
+- `basePath` prefija rutas y assets (`/_next/…`). Debe coincidir con el nombre del
+  repositorio. Si el repo se llama `<usuario>.github.io`, quítalo.
+- `trailingSlash` genera `precios/index.html`, que Pages sirve como `/precios/`.
+- `images.unoptimized` es obligatorio: la optimización de imágenes necesita un servidor.
+
+### 2. Sube el repositorio
+
+```bash
+git init -b main
 git add .
-git commit -m 'First Published Version'
-git push origin main
+git commit -m "Sitio estático con Next.js"
+git remote add origin https://github.com/TU-USUARIO/nextjs-github-actions.git
+git push -u origin main
 ```
-- Publish the static website: Go to the Pages option in the settings page, and in the Build and Deployment section, choose the GitHub Actions source.
-```
-https://github.com/yourusername/nextjs-github-actions/settings/pages
-```
-- Click on the button in the box displayed to configure the packaging of a Next.js site.
-- The previous step prepares a commit with the YML configuration file to automatically deploy the static website generated with Next.js. This repository already includes a ready-to-use workflow at [.github/workflows/nextjs.yml](.github/workflows/nextjs.yml) that installs dependencies with pnpm, builds the static export, and deploys it to GitHub Pages.
-- After creating the commit, you only need to wait a few seconds for the actions to execute successfully and deploy the static website.
+
+### 3. Activa Pages
+
+En GitHub: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+
+GitHub ofrece ahí una plantilla de workflow para Next.js; **no hace falta usarla**, el
+repositorio ya incluye [.github/workflows/nextjs.yml](.github/workflows/nextjs.yml). En
+cada `push` a `main` instala las dependencias con pnpm, ejecuta `pnpm lint`, construye el
+export estático y lo despliega. En los pull requests solo hace lint y build, sin desplegar.
+
+## Licencia
+
+[MIT](LICENSE)

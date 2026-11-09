@@ -5,23 +5,23 @@ import { Planes } from "@/components/planes";
 export const metadata: Metadata = {
   title: "Precios",
   description:
-    "Tres planes con precio publico y comparativa detallada. Cifras ficticias de demostracion.",
+    "Tres planes con precio público y comparativa detallada. Cifras ficticias de demostración.",
 };
 
 const COMPARATIVA = [
   { caracteristica: "Usuarios", inicio: "10", equipo: "50", corporativo: "Ilimitados" },
   { caracteristica: "Conectores", inicio: "5", equipo: "20", corporativo: "A medida" },
   {
-    caracteristica: "Frecuencia de actualizacion",
+    caracteristica: "Frecuencia de actualización",
     inicio: "Diaria",
     equipo: "Cada hora",
     corporativo: "Tiempo real",
   },
   {
-    caracteristica: "Historico de datos",
+    caracteristica: "Histórico de datos",
     inicio: "12 meses",
     equipo: "36 meses",
-    corporativo: "Sin limite",
+    corporativo: "Sin límite",
   },
   {
     caracteristica: "Modelado de indicadores",
@@ -29,14 +29,14 @@ const COMPARATIVA = [
     equipo: "Incluido",
     corporativo: "Incluido",
   },
-  { caracteristica: "Alertas por umbral", inicio: "Si", equipo: "Si", corporativo: "Si" },
+  { caracteristica: "Alertas por umbral", inicio: "Sí", equipo: "Sí", corporativo: "Sí" },
   {
-    caracteristica: "Inicio de sesion unico (SSO)",
+    caracteristica: "Inicio de sesión único (SSO)",
     inicio: "—",
     equipo: "—",
-    corporativo: "Si",
+    corporativo: "Sí",
   },
-  { caracteristica: "Registro de auditoria", inicio: "—", equipo: "—", corporativo: "Si" },
+  { caracteristica: "Registro de auditoría", inicio: "—", equipo: "—", corporativo: "Sí" },
   {
     caracteristica: "Tiempo de respuesta de soporte",
     inicio: "48 h",
@@ -48,28 +48,28 @@ const COMPARATIVA = [
 // Las celdas de si/no se colorean; las de dato suelto se dejan neutras.
 const clase = (valor: string) => {
   if (valor === "—") return "no";
-  if (valor === "Si" || valor === "Incluido") return "si";
+  if (valor === "Sí" || valor === "Incluido") return "si";
   return undefined;
 };
 
 const FAQ = [
   {
-    pregunta: "Puedo cambiar de plan a mitad de mes?",
+    pregunta: "¿Puedo cambiar de plan a mitad de mes?",
     respuesta:
-      "Si. El cambio se prorratea sobre los dias restantes y se refleja en la siguiente factura, tanto si subes como si bajas.",
+      "Sí. El cambio se prorratea sobre los días restantes y se refleja en la siguiente factura, tanto si subes como si bajas.",
   },
   {
-    pregunta: "Que pasa si supero el numero de usuarios?",
+    pregunta: "¿Qué pasa si supero el número de usuarios?",
     respuesta:
-      "Nada se bloquea. Te avisamos al llegar al 90 % y acordamos el salto de plan en la siguiente renovacion.",
+      "Nada se bloquea. Te avisamos al llegar al 90 % y acordamos el salto de plan en la siguiente renovación.",
   },
   {
-    pregunta: "La implantacion se cobra aparte?",
+    pregunta: "¿La implantación se cobra aparte?",
     respuesta:
-      "En Inicio y Equipo esta incluida. En Corporativo se presupuesta segun el numero de sedes y sistemas a conectar.",
+      "En Inicio y Equipo está incluida. En Corporativo se presupuesta según el número de sedes y sistemas a conectar.",
   },
   {
-    pregunta: "Hay permanencia?",
+    pregunta: "¿Hay permanencia?",
     respuesta:
       "En mensual no. En anual el compromiso es de doce meses a cambio del 20 % de descuento.",
   },
@@ -90,11 +90,11 @@ export default function Precios() {
           <div className="tabla-envoltorio" data-revelar>
             <table className="tabla">
               <caption className="visualmente-oculto">
-                Comparativa de caracteristicas entre los planes Inicio, Equipo y Corporativo
+                Comparativa de características entre los planes Inicio, Equipo y Corporativo
               </caption>
               <thead>
                 <tr>
-                  <th scope="col">Caracteristica</th>
+                  <th scope="col">Característica</th>
                   <th scope="col">Inicio</th>
                   <th scope="col">Equipo</th>
                   <th scope="col">Corporativo</th>
@@ -119,7 +119,7 @@ export default function Precios() {
         <div className="contenedor contenedor--estrecho">
           <header className="seccion__cabecera" data-revelar>
             <p className="antetitulo">Dudas habituales</p>
-            <h2>Sobre la facturacion</h2>
+            <h2>Sobre la facturación</h2>
           </header>
 
           <div className="faq" data-revelar>
@@ -136,7 +136,7 @@ export default function Precios() {
       <section className="cta">
         <div className="contenedor cta__interior" data-revelar>
           <div>
-            <h2>Prueba 14 dias con tus datos</h2>
+            <h2>Prueba 14 días con tus datos</h2>
             <p>Sin tarjeta y sin llamada obligatoria de ventas.</p>
           </div>
           <Link className="boton boton--claro" href="/contacto">

@@ -10,7 +10,7 @@ export function Pie() {
           <div className="pie__marca">
             <Marca />
             <p className="pie__lema">
-              Analitica operativa para equipos que toman decisiones cada dia, no cada trimestre.
+              Analítica operativa para equipos que toman decisiones cada día, no cada trimestre.
             </p>
           </div>
 
@@ -24,7 +24,7 @@ export function Pie() {
                 <Link href="/precios">Precios</Link>
               </li>
               <li>
-                <Link href="/casos">Casos de exito</Link>
+                <Link href="/casos">Casos de éxito</Link>
               </li>
               <li>
                 <Link href="/servicios#integraciones">Integraciones</Link>
@@ -33,7 +33,7 @@ export function Pie() {
           </div>
 
           <div>
-            <h3 className="pie__titulo">Compania</h3>
+            <h3 className="pie__titulo">Compañía</h3>
             <ul className="pie__lista">
               <li>
                 <Link href="/#confianza">Clientes</Link>

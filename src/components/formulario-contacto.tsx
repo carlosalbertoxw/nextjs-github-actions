@@ -5,14 +5,14 @@ import { useState, type FormEvent } from "react";
 // Validacion del formulario de contacto.
 //
 // GitHub Pages es hosting estatico: no hay backend que reciba el envio. Este
-// componente valida en el navegador y confirma en pantalla, a modo de demostracion.
+// componente valida en el navegador y confirma en pantalla, a modo de demostración.
 // Para recibir los mensajes de verdad, apunta el `action` a un servicio externo
 // (Formspree, Basin, Getform...) y borra el `evento.preventDefault()` de abajo.
 
 const MENSAJES = {
   nombre: "Escribe tu nombre.",
   email: "Escribe un correo valido.",
-  mensaje: "Cuentanos brevemente que quieres medir.",
+  mensaje: "Cuéntanos brevemente qué quieres medir.",
   privacidad: "Necesitamos tu consentimiento para responderte.",
 } as const;
 
@@ -24,7 +24,7 @@ const esEmailValido = (valor: string) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(va
 
 const esCampoValidable = (nombre: string): nombre is Campo => nombre in MENSAJES;
 
-// Los eventos del formulario llegan tipados con el <form> como destino, asi que
+// Los eventos del formulario llegan tipados con el <form> como destino, así que
 // el control concreto hay que reconocerlo en tiempo de ejecucion.
 const comoControl = (destino: EventTarget | null): Control | null =>
   destino instanceof HTMLInputElement ||
@@ -77,10 +77,10 @@ export function FormularioContacto() {
     }
 
     const datos = Object.fromEntries(new FormData(formulario));
-    console.info("Datos del formulario (demo, no se envian):", datos);
+    console.info("Datos del formulario (demo, no se envían):", datos);
 
     setAviso(
-      `Gracias, ${String(datos.nombre).split(" ")[0]}. Es una demo, asi que el mensaje no se ha enviado a ningun sitio.`,
+      `Gracias, ${String(datos.nombre).split(" ")[0]}. Es una demo, así que el mensaje no se ha enviado a ningún sitio.`,
     );
     formulario.reset();
   };
@@ -135,17 +135,17 @@ export function FormularioContacto() {
       </div>
 
       <div className="campo">
-        <label htmlFor="equipo">Tamano del equipo</label>
+        <label htmlFor="equipo">Tamaño del equipo</label>
         <select id="equipo" name="equipo" defaultValue="11-50">
           <option value="1-10">1 a 10 personas</option>
           <option value="11-50">11 a 50 personas</option>
           <option value="51-200">51 a 200 personas</option>
-          <option value="200+">Mas de 200 personas</option>
+          <option value="200+">Más de 200 personas</option>
         </select>
       </div>
 
       <div className="campo">
-        <label htmlFor="mensaje">Que quieres medir?</label>
+        <label htmlFor="mensaje">¿Qué quieres medir?</label>
         <textarea
           id="mensaje"
           name="mensaje"

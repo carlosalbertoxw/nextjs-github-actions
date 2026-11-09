@@ -5,30 +5,30 @@ import { FormularioContacto } from "@/components/formulario-contacto";
 export const metadata: Metadata = {
   title: "Contacto",
   description:
-    "Formulario de contacto de demostracion, datos de la oficina y preguntas frecuentes. Contenido ficticio.",
+    "Formulario de contacto de demostración, datos de la oficina y preguntas frecuentes. Contenido ficticio.",
 };
 
 const FAQ = [
   {
-    pregunta: "Cuanto tarda una implantacion tipica?",
+    pregunta: "¿Cuánto tarda una implantación típica?",
     respuesta:
-      "Entre dos y cuatro semanas desde la sesion de diagnostico, segun cuantos sistemas haya que conectar y en que estado esten los datos.",
+      "Entre dos y cuatro semanas desde la sesión de diagnóstico, según cuántos sistemas haya que conectar y en qué estado estén los datos.",
     abierta: true,
   },
   {
-    pregunta: "Necesito un equipo de datos propio?",
+    pregunta: "¿Necesito un equipo de datos propio?",
     respuesta:
-      "No. La mayoria de nuestros clientes de demostracion no tienen uno. Si lo tienes, trabajamos con el y le dejamos el control del modelado.",
+      "No. La mayoría de nuestros clientes de demostración no tienen uno. Si lo tienes, trabajamos con él y le dejamos el control del modelado.",
   },
   {
-    pregunta: "Donde se alojan los datos?",
+    pregunta: "¿Dónde se alojan los datos?",
     respuesta:
-      "En centros de datos de la Union Europea. En el plan Corporativo se puede desplegar en tu propia infraestructura.",
+      "En centros de datos de la Unión Europea. En el plan Corporativo se puede desplegar en tu propia infraestructura.",
   },
   {
-    pregunta: "Se puede exportar todo si dejamos de ser clientes?",
+    pregunta: "¿Se puede exportar todo si dejamos de ser clientes?",
     respuesta:
-      "Si, en cualquier momento y sin coste: datos, definiciones de indicadores e historico completo.",
+      "Sí, en cualquier momento y sin coste: datos, definiciones de indicadores e histórico completo.",
   },
 ];
 
@@ -40,7 +40,7 @@ export default function Contacto() {
           <p className="antetitulo">Contacto</p>
           <h1>Hablamos 30 minutos</h1>
           <p className="entradilla">
-            Cuentanos que proceso quieres medir. Respondemos en menos de un dia habil.
+            Cuéntanos qué proceso quieres medir. Respondemos en menos de un día hábil.
           </p>
         </div>
       </section>
@@ -52,14 +52,14 @@ export default function Contacto() {
 
             <aside className="contacto__lateral" data-revelar>
               <div className="cuadro">
-                <h2>Otras vias</h2>
+                <h2>Otras vías</h2>
                 <ul className="lista-contacto">
                   <li>
                     <span className="lista-contacto__etiqueta">Correo</span>
                     <a href="mailto:hola@cauce.example">hola@cauce.example</a>
                   </li>
                   <li>
-                    <span className="lista-contacto__etiqueta">Telefono</span>
+                    <span className="lista-contacto__etiqueta">Teléfono</span>
                     <a href="tel:+34900000000">+34 900 000 000</a>
                   </li>
                   <li>
@@ -76,7 +76,7 @@ export default function Contacto() {
                   <br />
                   28000 Madrid
                   <br />
-                  Espana
+                  España
                 </p>
                 <p className="cuadro__texto cuadro__texto--tenue">
                   Lunes a viernes, de 9:00 a 18:00 (CET)
@@ -84,10 +84,10 @@ export default function Contacto() {
               </div>
 
               <div className="cuadro cuadro--acento">
-                <h2>Prefieres verlo directamente?</h2>
+                <h2>¿Prefieres verlo directamente?</h2>
                 <p className="cuadro__texto">
-                  Reserva una demo de 30 minutos sobre un proceso real tuyo. Sin presentacion
-                  generica.
+                  Reserva una demo de 30 minutos sobre un proceso real tuyo. Sin presentación
+                  genérica.
                 </p>
                 <Link className="boton boton--primario boton--bloque boton--sm" href="/precios">
                   Ver planes

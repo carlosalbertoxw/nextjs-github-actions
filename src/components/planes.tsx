@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 // Conmutador mensual / anual y las tarjetas de plan.
-// Comparten estado, asi que viven en el mismo componente aunque el maquetado
+// Comparten estado, así que viven en el mismo componente aunque el maquetado
 // los reparta en dos secciones.
 
 type Periodo = "mensual" | "anual";
@@ -36,13 +36,13 @@ export function Planes() {
       <section className="portada">
         <div className="contenedor contenedor--estrecho">
           <p className="antetitulo">Precios</p>
-          <h1>Precio publico, sin llamada previa</h1>
+          <h1>Precio público, sin llamada previa</h1>
           <p className="entradilla">
             Todos los planes incluyen paneles ilimitados y actualizaciones. Cifras ficticias,
             solo para la demo.
           </p>
 
-          <div className="conmutador" role="group" aria-label="Periodo de facturacion">
+          <div className="conmutador" role="group" aria-label="Periodo de facturación">
             <button {...opcion("mensual")}>Mensual</button>
             <button {...opcion("anual")}>
               Anual <span className="pastilla">-20 %</span>
@@ -70,16 +70,16 @@ export function Planes() {
                 <li>Hasta 10 usuarios</li>
                 <li>5 conectores</li>
                 <li>Paneles ilimitados</li>
-                <li>Actualizacion diaria de datos</li>
+                <li>Actualización diaria de datos</li>
                 <li>Soporte por correo</li>
               </ul>
             </article>
 
             <article className="plan plan--destacado" data-revelar>
-              <p className="plan__insignia">El mas contratado</p>
+              <p className="plan__insignia">El más contratado</p>
               <h2 className="plan__nombre">Equipo</h2>
               <p className="plan__descripcion">
-                Cuando varias areas dependen de los mismos numeros.
+                Cuando varias áreas dependen de los mismos números.
               </p>
               <p className="plan__precio">
                 <span className="plan__moneda">€</span>
@@ -94,7 +94,7 @@ export function Planes() {
                 <li>Hasta 50 usuarios</li>
                 <li>20 conectores</li>
                 <li>Modelado de indicadores incluido</li>
-                <li>Actualizacion cada hora</li>
+                <li>Actualización cada hora</li>
                 <li>Alertas en Slack y Teams</li>
                 <li>Canal de soporte compartido</li>
               </ul>
@@ -102,7 +102,7 @@ export function Planes() {
 
             <article className="plan" data-revelar>
               <h2 className="plan__nombre">Corporativo</h2>
-              <p className="plan__descripcion">Varias sedes, auditoria y requisitos propios.</p>
+              <p className="plan__descripcion">Varias sedes, auditoría y requisitos propios.</p>
               <p className="plan__precio plan__precio--texto">A medida</p>
               <p className="plan__nota">Contrato anual</p>
               <Link className="boton boton--fantasma boton--bloque" href="/contacto">
@@ -111,9 +111,9 @@ export function Planes() {
               <ul className="lista-marcas">
                 <li>Usuarios ilimitados</li>
                 <li>Conectores a medida</li>
-                <li>Actualizacion en tiempo real</li>
-                <li>Inicio de sesion unico (SSO)</li>
-                <li>Registro de auditoria</li>
+                <li>Actualización en tiempo real</li>
+                <li>Inicio de sesión único (SSO)</li>
+                <li>Registro de auditoría</li>
                 <li>Acuerdo de nivel de servicio firmado</li>
               </ul>
             </article>

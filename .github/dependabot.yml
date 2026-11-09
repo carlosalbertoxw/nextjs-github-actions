@@ -1,0 +1,19 @@
+# Propone actualizaciones una vez al mes, agrupadas en un solo PR por ecosistema.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      actions:
+        patterns: ["*"]
+
+  # "npm" cubre tambien proyectos con pnpm.
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      dependencias:
+        patterns: ["*"]

@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-// Logotipo + nombre. Se repite en la cabecera y en el pie, asi que vive aparte.
+// Logotipo + nombre. Se repite en la cabecera y en el pie, así que vive aparte.
 export function Marca() {
   return (
     <Link className="marca" href="/">
