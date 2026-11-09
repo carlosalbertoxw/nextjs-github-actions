@@ -17,3 +17,9 @@ updates:
     groups:
       dependencias:
         patterns: ["*"]
+    ignore:
+      # typescript-eslint (via eslint-config-next) todavia no soporta TypeScript 7
+      # y el lint falla. Quitar cuando lo soporte:
+      # https://github.com/typescript-eslint/typescript-eslint/issues/10940
+      - dependency-name: typescript
+        update-types: ["version-update:semver-major"]
